@@ -24,6 +24,8 @@
         {
             "language": "javascript",
             "source": [
+
+                "function equalizeArray(arr) {\r\n    let i =100 ;\r\n    let max=0 ;\r\n    for(i;i!=0;i--){\r\n        let frq=arr.filter(num=>{\r\n            return num==i ;\r\n            \r\n        })\r\n        if (max<frq.length){\r\n            max=frq.length ;\r\n        }\r\n        \r\n    }\r\n    let result =arr.length-max ;\r\n    return result ;\r\n    }"
                 ""
             ],
             "outputs": []
