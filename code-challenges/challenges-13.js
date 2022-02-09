@@ -38,9 +38,13 @@
 // ------------------------
 
 const objectCounter = (obj) => {
+    let result=obj.reduce((sum,items)=>{
     
-let ans = reduce.obj;
-return console.log(ans) ;
+        sum++;
+    return sum ;
+    },0)
+
+return result ;
 }
 
 // 2) ---------------------
@@ -57,8 +61,14 @@ return console.log(ans) ;
 // ------------------------
 
 const stringReverse = (str) => {
-    // write your code here
+    let arr2 ;
+    let result=str.split(' ').reduce((reversedArr, items)=>{
+        reversedArr=items+" "+reversedArr ;
+return reversedArr ;
+},"")
 
+
+return result.slice(0, -1); ;
 }
 
 // 3) ---------------------
