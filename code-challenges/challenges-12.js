@@ -15,7 +15,7 @@
 // ------------------------
 
 const oddFiltration = (arr) => {
-let arr1=arr.filter(x=> x%2 ==1);
+let arr1=arr.filter(x=> {return x%2 ==1 ; });
 return arr1 ;
 }
 
@@ -65,17 +65,28 @@ return arr1 ;
 //  1- Full name is first name + last name
 //  2- If one of the names is null dont add it to the full name
 // ------------------------
-function full () {
-    if(firstName!=0 && secondName!=0){
-    fullName=firstName+secondName ;}
-    return fullName ;
+function full (firstName,secondName) {
+    if(firstName!=null && secondName!=null){
+    return firstName+" "+secondName ;}
+    else if(firstName==null){
+        return secondName ;
+    }else{
+        return firstName ;
+    }
 }
 const cvsFiltration = (arr) => {
-    let arr1=arr.filter(obj=>(obj.yearsOfExperience>4 && obj.tech=="JS" && full(arr);
-        
-       
-    
-        
+    let arr1=arr.filter(obj=>{
+        if(obj.yearsOfExperience>4 && obj.tech=="JS")
+        {
+            let name =full(obj.firstName,obj.LastName) ;
+         obj.fullName=name ;
+
+         delete obj.firstName;
+         delete obj.LastName;
+         delete obj.yearsOfExperience;
+         return obj ;
+        }  
+})
     return arr1 ;
 }
 
@@ -89,7 +100,10 @@ const cvsFiltration = (arr) => {
 // ------------------------
 
 const vowelsFiltration = (arr) => {
-    let result = arr.filter(word => word != "a"||"e"||"i"||"o"||"u") ;
+    let result = arr.filter(word =>{
+        let regex = /[a,e,i,o,u]/gi ;
+        return !(regex.test(word)) ;
+    } ) ;
 
     return result ;
 } 
@@ -109,8 +123,14 @@ const vowelsFiltration = (arr) => {
 // ------------------------
 
 const skillComparison = (arr1, arr2) => {
-let arr=arr1.filter(arr2=> arr2 !== arr1) ;
-return arr ;
+let arr=arr1.filter(word=>{
+return !(arr2.includes(word)) ;
+}) ;
+let arr3=arr2.filter(word=>{
+    return !(arr1.includes(word)) ;
+    }) ;
+let result =arr.concat(arr3);
+return result ;
 }
 
 
