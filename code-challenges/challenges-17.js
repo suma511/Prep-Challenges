@@ -43,8 +43,8 @@ const filterLinks = (str) => {
    let str1 =[];
    for(let i=0;i<str.length;i++){
        let tt=str[i];
-       let reg =/www\.[\w-]+\.\w{3}/g ;
-       if (reg.match(tt)){
+       let regex =/www\.[\w-]+\.\w{3}/g ;
+       if (regex.match(tt)){
         str1.push(reg.match(tt));
    }
 }
